@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
+
+import java.lang.annotation.Annotation;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,5 +26,8 @@ public class MainActivity extends AppCompatActivity {
     private int tinhTong(int a , int b){
         int ketqua = a + b;
         return ketqua;
+    }
+    private void inThongBao(String msg){
+        Toast.makeText(MainActivity.this,msg,Toast.LENGTH_LONG).show();
     }
 }
