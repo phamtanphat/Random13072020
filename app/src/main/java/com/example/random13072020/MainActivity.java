@@ -1,67 +1,46 @@
 package com.example.random13072020;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
+    //global
+    EditText mEdtSomin, mEdtSomax;
+    Button mBtnRandom;
+    TextView mTvKetqua;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        // ánh xạ
+        mBtnRandom = findViewById(R.id.buttonRandom);
+        mEdtSomax = findViewById(R.id.edittextSomax);
+        mEdtSomin = findViewById(R.id.edittextSomin);
+        mTvKetqua = findViewById(R.id.textviewKetqua);
 
-        // Lam tron : 0.5
-//        long value = Math.round(1.49);
-//        Log.d("BBB","Round value " + value);
+        mBtnRandom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-        // Lam tron len : 0.1
-//        double value1 = Math.ceil(0.1);
-//        Log.d("BBB","Ceil value " + value1);
+            }
+        });
 
-        // Lam tron xuong : 0.9
-//        double value2 = Math.floor(0.9);
-//        Log.d("BBB","Floor value " + value2);
-
-        // Ham random
-        // 0 - 5
-//        double random = Math.floor(Math.random() * 6);
-//        Log.d("BBB",random + "");
-        // 0 - 5
-        // 21 - 101 = 80
-//        Random random = new Random();
-//        for (int i = 0; i < 100 ; i++) {
-//            int value = random.nextInt(81 ) + 21;
-//            Log.d("BBB",value + "");
-//        }
-
-        // 3 buoc
-        // 1 : Valid
-        // 2 : Xu ly random
-        // 3 : Xu ly hien thi
-
-
+//        Yêu cầu
+//        1 : Nhập dữ liệu (validate)
+//                + Không được bỏ trống
+//                + Số min không được lớn hơn số max
+//        2 : Xử lý
+//                + Hiển thị kết quả theo chuỗi như sau : 1 - 2 - 4 - 5 - 2
+//                + Các giá trị không được hiển thị quá 2 lần : 1 - 2 - 4 - 5
     }
 
-
-
-
-//    private void dinhNghiaPhuongThuc(){
-//        // ctrl + p : xem tham so truyen vao
-////        int value = tinhTong(5,10);
-////        Log.d("BBB" ,String.valueOf(value));
-//        inThongBao("Activity running");
-//        // 1 : Pham vi truy cap : Access modifier (class , bien , function)
-//        // 2 : Gia tri sau khi thuc thi
-//        // 3 : Ten cua phuong thuc (theo camelcase)
-//        // public , private , protected , default
-//        private int tinhTong(int a , int b){
-//            int ketqua = a + b;
-//            return ketqua;
-//        }
-//        private void inThongBao(String msg){
-//            Toast.makeText(MainActivity.this,msg,Toast.LENGTH_LONG).show();
-//        }
-//    }
 }
