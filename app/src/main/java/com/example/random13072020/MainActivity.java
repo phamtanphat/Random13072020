@@ -1,11 +1,11 @@
 package com.example.random13072020;
 
 import android.os.Bundle;
-import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,8 +26,20 @@ public class MainActivity extends AppCompatActivity {
 
         // Ham random
         // 0 - 5
-        double random = Math.floor(Math.random() * 6);
-        Log.d("BBB",random + "");
+//        double random = Math.floor(Math.random() * 6);
+//        Log.d("BBB",random + "");
+        // 0 - 5
+        // 21 - 101 = 80
+//        Random random = new Random();
+//        for (int i = 0; i < 100 ; i++) {
+//            int value = random.nextInt(81 ) + 21;
+//            Log.d("BBB",value + "");
+//        }
+
+        // 3 buoc
+        // 1 : Valid
+        // 2 : Xu ly random
+        // 3 : Xu ly hien thi
 
 
     }
