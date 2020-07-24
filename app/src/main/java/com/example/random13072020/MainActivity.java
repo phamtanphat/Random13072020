@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
@@ -55,12 +56,18 @@ public class MainActivity extends AppCompatActivity {
                 if (sMin >= sMax){
                     sMax = sMin + 1;
                 }
-                mEdtSomin.setText(sMin + "");
-                mEdtSomax.setText(sMax + "");
                 // Hien thi
+
+
+
+                mRandom.nextInt(mArray.length);
                 mRandomValue = mRandom.nextInt(sMax - sMin + 1) + sMin;
                 mValue = mValue + mRandomValue + " - ";
+
                 mTvKetqua.setText(mValue);
+                mEdtSomin.setText(sMin + "");
+                mEdtSomax.setText(sMax + "");
+
             }
         });
 
@@ -69,8 +76,10 @@ public class MainActivity extends AppCompatActivity {
 //                + Không được bỏ trống
 //                + Số min không được lớn hơn số max
 //        2 : Xử lý
-//                + Hiển thị kết quả theo chuỗi như sau : 1 - 2 - 4 - 5 - 2
+//                + Hiển thị kết quả theo chuỗi như sau : 1 - 2 - 4 - 5 - 2 -
 //                + Các giá trị không được hiển thị quá 2 lần : 1 - 2 - 4 - 5
+//        ArrayList  trong collections
+//        Xu lý chuỗi split ,subString
     }
 
 }
