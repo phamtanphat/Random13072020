@@ -19,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
     Button mBtnRandom;
     TextView mTvKetqua;
     String mValue = "";
+    Random mRandom ;
+    int mRandomValue = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
         mEdtSomax = findViewById(R.id.edittextSomax);
         mEdtSomin = findViewById(R.id.edittextSomin);
         mTvKetqua = findViewById(R.id.textviewKetqua);
+
+        mRandom = new Random();
 
         mBtnRandom.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,9 +58,8 @@ public class MainActivity extends AppCompatActivity {
                 mEdtSomin.setText(sMin + "");
                 mEdtSomax.setText(sMax + "");
                 // Hien thi
-                Random random = new Random();
-                int value = random.nextInt(sMax - sMin + 1) + sMin;
-                mValue = mValue + value + " - ";
+                mRandomValue = mRandom.nextInt(sMax - sMin + 1) + sMin;
+                mValue = mValue + mRandomValue + " - ";
                 mTvKetqua.setText(mValue);
             }
         });
