@@ -10,13 +10,15 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.Random;
+
 public class MainActivity extends AppCompatActivity {
 
     //global
     EditText mEdtSomin, mEdtSomax;
     Button mBtnRandom;
     TextView mTvKetqua;
-
+    String mValue = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,7 +32,32 @@ public class MainActivity extends AppCompatActivity {
         mBtnRandom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Validate
+                String textSmin = mEdtSomin.getText().toString();
+                String textSmax = mEdtSomax.getText().toString();
+                if (textSmin.isEmpty() || textSmax.isEmpty()){
+                    Toast.makeText(
+                            MainActivity.this,
+                            "Bạn chưa nhập đủ thông tin",
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                // Điều kiện 1 : Số min không lớn hơn số max
+                // Điêu kiện 2 : Số max = 0 => min = 0 , max = 1
 
+                int sMin = Integer.parseInt(textSmin);
+                int sMax = Integer.parseInt(textSmax);
+
+                if (sMin >= sMax){
+                    sMax = sMin + 1;
+                }
+                mEdtSomin.setText(sMin + "");
+                mEdtSomax.setText(sMax + "");
+                // Hien thi
+                Random random = new Random();
+                int value = random.nextInt(sMax - sMin + 1) + sMin;
+                mValue = mValue + value + " - ";
+                mTvKetqua.setText(mValue);
             }
         });
 
