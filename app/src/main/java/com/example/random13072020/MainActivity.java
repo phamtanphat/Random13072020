@@ -97,6 +97,9 @@ public class MainActivity extends AppCompatActivity {
                 }
                 int index = mRandom.nextInt(mArrayRange.size());
                 mRandomValue = mArrayRange.get(index);
+
+//                Task 2 : Hiển thị theo chuỗi như sau
+//                   + Chuỗi : 1 - 2 - 3 - 4
 //                //Cách 1 : Hiển thị
 //                if (mArrayRange.size() == 1){
 //                    mValue += mRandomValue;
@@ -113,26 +116,11 @@ public class MainActivity extends AppCompatActivity {
 //                <========>
                 mTvKetqua.setText(mValue);
                 mArrayRange.remove(index);
-
-
-
-
-//                Task 2 : Hiển thị theo chuỗi như sau
-//                    + Chuỗi : 1 - 2 - 3 - 4
             }
         });
-
-//        Yêu cầu
-//        1 : Nhập dữ liệu (validate)
-//                + Không được bỏ trống
-//                + Số min không được lớn hơn số max
-//        2 : Xử lý
-//                + Hiển thị kết quả theo chuỗi như sau : 1 - 2 - 4 - 5 - 2 -
-//                + Các giá trị không được hiển thị quá 2 lần : 1 - 2 - 4 - 5
-//        ArrayList  trong collections
-//        Xu lý chuỗi split ,subString
-
-
+        enableView(mBtnRandom);
+        enableView(mBtnReset);
+        disableView(mBtnReset);
     }
 
     // Task
@@ -141,4 +129,10 @@ public class MainActivity extends AppCompatActivity {
 //        - Button reset (Khi giá trị random đã tồn tại , khi hết số random)
 //        - Button random(Khi giá trị random lớn hơn 0)
 
+    private void enableView(View view){
+        view.setEnabled(true);
+    }
+    private void disableView(View view){
+        view.setEnabled(false);
+    }
 }
