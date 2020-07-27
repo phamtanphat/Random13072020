@@ -97,7 +97,20 @@ public class MainActivity extends AppCompatActivity {
                 }
                 int index = mRandom.nextInt(mArrayRange.size());
                 mRandomValue = mArrayRange.get(index);
+//                //Cách 1 : Hiển thị
+//                if (mArrayRange.size() == 1){
+//                    mValue += mRandomValue;
+//                }else{
+//                    mValue += mRandomValue + " - ";
+//                }
+
+                //Cách 2 : Substring
                 mValue += mRandomValue + " - ";
+                if (mArrayRange.size() == 1){
+//                    0 - 1 - 2 - 3 - 4 - 5 - : Giữ lại từ vị trí 0 đến length - 3
+                    mValue = mValue.substring(0 , mValue.length() - 3);
+                }
+//                <========>
                 mTvKetqua.setText(mValue);
                 mArrayRange.remove(index);
 
