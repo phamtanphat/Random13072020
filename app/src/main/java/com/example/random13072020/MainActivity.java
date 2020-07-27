@@ -58,9 +58,6 @@ public class MainActivity extends AppCompatActivity {
                 }
                 // Hien thi
 
-
-
-                mRandom.nextInt(mArray.length);
                 mRandomValue = mRandom.nextInt(sMax - sMin + 1) + sMin;
                 mValue = mValue + mRandomValue + " - ";
 
