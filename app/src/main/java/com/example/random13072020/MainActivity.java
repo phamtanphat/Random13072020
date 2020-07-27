@@ -20,11 +20,12 @@ public class MainActivity extends AppCompatActivity {
 
     //global
     EditText mEdtSomin, mEdtSomax;
-    Button mBtnRandom;
+    Button mBtnRandom, mBtnAddRange,mBtnReset;
     TextView mTvKetqua;
     String mValue = "";
     Random mRandom ;
     int mRandomValue = 0;
+    ArrayList<Integer> mArrayRange;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,13 +35,52 @@ public class MainActivity extends AppCompatActivity {
         mEdtSomax = findViewById(R.id.edittextSomax);
         mEdtSomin = findViewById(R.id.edittextSomin);
         mTvKetqua = findViewById(R.id.textviewKetqua);
+        mBtnAddRange = findViewById(R.id.buttonRange);
+        mBtnReset = findViewById(R.id.buttonReset);
 
         mRandom = new Random();
+        mArrayRange = new ArrayList<>();
 
+        mBtnAddRange.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Validate
+                String textSmin = mEdtSomin.getText().toString();
+                String textSmax = mEdtSomax.getText().toString();
+                if (textSmin.isEmpty() || textSmax.isEmpty()){
+                    Toast.makeText(
+                            MainActivity.this,
+                            "Bạn chưa nhập đủ thông tin",
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                // Điều kiện 1 : Số min không lớn hơn số max
+                // Điêu kiện 2 : Số max = 0 => min = 0 , max = 1
+
+                int sMin = Integer.parseInt(textSmin);
+                int sMax = Integer.parseInt(textSmax);
+
+                if (sMin >= sMax){
+                    sMax = sMin + 1;
+                }
+                mEdtSomin.setText(sMin + "");
+                mEdtSomax.setText(sMax + "");
+
+                // Add range
+                if (mArrayRange.size() >0){
+                    mArrayRange.clear();
+                }
+                for (int i = sMin; i <= sMax ; i++) {
+                    mArrayRange.add(i);
+                }
+
+                Log.d("BBB",mArrayRange.size() + "");
+            }
+        });
 //        mBtnRandom.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
-//                // Validate
+                // Validate
 //                String textSmin = mEdtSomin.getText().toString();
 //                String textSmax = mEdtSomax.getText().toString();
 //                if (textSmin.isEmpty() || textSmax.isEmpty()){
@@ -81,19 +121,6 @@ public class MainActivity extends AppCompatActivity {
 //        ArrayList  trong collections
 //        Xu lý chuỗi split ,subString
 
-        ArrayList<String> arrayNames = new ArrayList<>();
-
-        // Thêm
-        arrayNames.add("Nguyen Van Teo");
-        arrayNames.add("Nguyen Van Ti");
-
-        // Cập nhật
-//        arrayNames.set(2 , "Nguyen Van Tuan");
-
-        // Xóa
-        arrayNames.remove(0);
-
-        Log.d("BBB",arrayNames.get(0) + "");
 
     }
 
